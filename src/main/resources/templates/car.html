@@ -3,26 +3,35 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>hello</title>
+    <title>cars</title>
 </head>
 <body>
-<h2>single car</h2>
-<p>car mark</p>
-<p th:text="${car.getMark()}"></p>
-
-<p>car model</p>
-<p th:text="${car.getModel()}"></p>
+<!--<h2>single car</h2>-->
+<!--<p>car mark</p>-->
+<!--<p th:text="${car.getMark()}"></p>-->
+<!--<p>car model</p>-->
+<!--<p th:text="${car.getModel()}"></p>-->
 
 
 
 <h2>cars list</h2>
 
 <tr th:each="singleCar:${cars}">
-    <td th:text="${singleCar.getMark()}"/>
-    <td th:text="${singleCar.getModel()}"/>
+    <td th:text="${singleCar.getMark()}"></td>
+    <td th:text="${singleCar.getModel()}"></td>
     <p>------------------------------</p>
 
 </tr>
+
+
+<h2>form</h2>
+
+<form th:action="@{/add-car}" th:object="${newCar}" method="post">
+    <p>Model: <input type="text" th:field="*{model}"></p>
+    <p>Mark: <input type="text" th:field="*{mark}"></p>
+    <p><input type="submit" value="add new car"></p>
+
+</form>
 
 
 </body>
